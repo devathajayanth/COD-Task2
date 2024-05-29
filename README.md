@@ -4,7 +4,7 @@ domain: Data Science
 duration: May 20 - June 20
 mentor: Sravani Gouni
 description: 
-**Project Description: Linear Regression Model for Housing Data**
+**Linear Regression Model for Housing Data**
 
 This project demonstrates the implementation of a simple linear regression model using a housing dataset, specifically focusing on predicting the median house value (`MEDV`) based on the average number of rooms per dwelling (`RM`). The dataset is sourced from the HousingData.csv file stored locally on the user's machine. The main objective is to build a predictive model, evaluate its performance, and visualize the results in an intuitive and aesthetically pleasing manner using a web interface.
 
