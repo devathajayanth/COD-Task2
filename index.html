@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linear Regression Model</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+        .plot {
+            margin-top: 20px;
+        }
+        .center {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Linear Regression Model</h1>
+        <h2>Evaluation Metrics:</h2>
+        <p>Mean Squared Error: {{ mse }}</p>
+        <p>R-squared: {{ r_squared }}</p>
+        <div class="plot">
+            <h2>Visualization:</h2>
+            {{ plot_div | safe }}
+        </div>
+    </div>
+<div class="container">
+        <h2>Test Data with Predicted Outcomes:</h2>
+        <div class="center">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Average Number of Rooms (RM)</th>
+                        <th>Actual Median House Value (MEDV)</th>
+                        <th>Predicted Median House Value (MEDV)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in range(X_test.shape[0]) %}
+                        <tr>
+                            <td>{{ X_test.iloc[i, 0] }}</td>
+                            <td>{{ y_test.iloc[i] }}</td>
+                            <td>{{ y_pred_int[i] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Trained Data:</h2>
+        <div class="center">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Average Number of Rooms (RM)</th>
+                        <th>Median House Value (MEDV)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in range(X_train.shape[0]) %}
+                        <tr>
+                            <td>{{ X_train.iloc[i, 0] }}</td>
+                            <td>{{ y_train.iloc[i] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </body>
+</html>
